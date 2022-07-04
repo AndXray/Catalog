@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'widget.dart';
 
-void main() => runApp(cat());
+void main() => runApp(const Catalog());
 

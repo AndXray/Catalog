@@ -1,19 +1,19 @@
-
-import 'package:aaa/models/dish.dart';
 import 'package:flutter/material.dart';
-
+import 'models/jsonRead.dart';
 import 'screens/menu.dart';
 
-class cat extends StatelessWidget {
+class Catalog extends StatelessWidget {
 
+  const Catalog({Key? key}) : super(key: key);
 
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MenuScreen(),
+    ReadJsonData();
 
-    );
-  }
+
+    return const MaterialApp(
+        home: MenuScreen());
+    }
 }
 

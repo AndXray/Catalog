@@ -1,19 +1,21 @@
-import '../models/dish.dart';
+
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
-import 'menu.dart';
+
 
 class DetailScreen extends StatelessWidget {
-  const DetailScreen({Key? key, required this.name, this.price, this.description, this.image}) : super(key: key);
+  const DetailScreen({Key? key, this.name, this.price, this.description, this.image}) : super(key: key);
 
-    final name;
-    final price;
-    final description;
-    final image;
+  final name;
+  final price;
+  final description;
+  final image;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Подробности', style: TextStyle(
+        title: const Text('Подробности', style: TextStyle(
           fontSize: 30.0,
         )),
         centerTitle: true,
@@ -22,38 +24,35 @@ class DetailScreen extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            padding: EdgeInsets.all(20),
-            child: image,
+            padding: const EdgeInsets.all(20),
+            child: Image.asset(image),
           ),
-        Align(
-          child: Container(
-            child: Text(name, style: TextStyle(
+          Align(
+            child: Text(name, maxLines: 2, style: TextStyle(
                 fontSize: 25,
                 fontFamily: "BebasNeue",
                 color: Colors.red[800],
                 fontWeight: FontWeight.bold,
-                letterSpacing: 2),),
-          ),),
+                letterSpacing: 2),),),
           Align(
-            child: Text(description, style: TextStyle(
+            alignment: Alignment.center,
+            child: Text(description, style: const TextStyle(
               fontSize: 20,
               letterSpacing: 1.5,
               fontStyle: FontStyle.italic,
 
             ),),
-            alignment: Alignment.center,
           ),
           Align(
-              child: Container(
-                child: Text(price.toString() + ' ₽',
-              style: TextStyle(
-                  fontSize: 25,
-                  letterSpacing: 1.5,
-                  color: Colors.black
-              ),),
-
-          alignment: Alignment.center,
-        ),),
+            child: Container(
+              alignment: Alignment.center,
+              child: Text('$price ₽',
+                style: const TextStyle(
+                    fontSize: 25,
+                    letterSpacing: 1.5,
+                    color: Colors.black
+                ),),
+            ),),
         ],
       ),
     );
